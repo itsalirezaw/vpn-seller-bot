@@ -1,0 +1,22 @@
+chmod +x database_commands.sh
+./database_commands.sh
+pip install --upgrade pip
+pip install -r requirements.txt
+
+
+
+
+
+
+
+backup cronjob:
+crontab -e
+0 3 * * * /usr/bin/python3 /path/to/sync_xui_databases.py >> /var/log/xui_db_sync.log 2>&1
+
+set ubuntu systemd service:
+chmod +x scripts/setup_systemd_services.sh
+sudo scripts/setup_systemd_services.sh
+
+nginx
+chmod +x scripts/setup_nginx_domain.sh
+sudo scripts/setup_nginx_domain.sh

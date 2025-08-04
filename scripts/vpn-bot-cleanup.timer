@@ -1,0 +1,13 @@
+[Unit]
+Description=VPN Bot Cleanup Timer
+Description=Run cleanup service every 3 minutes
+Requires=vpn-bot-cleanup.service
+
+[Timer]
+Unit=vpn-bot-cleanup.service
+OnBootSec=1min
+OnUnitActiveSec=3min
+AccuracySec=30s
+
+[Install]
+WantedBy=timers.target 

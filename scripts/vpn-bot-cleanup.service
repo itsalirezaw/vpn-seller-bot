@@ -1,0 +1,17 @@
+[Unit]
+Description=VPN Bot Cleanup Service
+Description=Cleans up incomplete orders every 3 minutes
+After=network.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/vpn-bot
+Environment=PYTHONPATH=/opt/vpn-bot
+ExecStart=/usr/bin/python3 /opt/vpn-bot/scripts/cleanup_incomplete_orders.py
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target 
